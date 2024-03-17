@@ -1,0 +1,75 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}<title>Aid Info</title>{% endblock %}
+
+{% block css %}
+
+<style>
+    .container{
+        padding: 100px 10%;
+    }
+    .container h1{
+        width: fit-content;
+        border-bottom: 2px solid #2593e2;
+        padding-bottom: 7px;
+        margin-bottom: 50px;
+    }
+    .container h2{
+        margin-bottom: 20px;
+    }
+    .requirements-aid-info, #application-details, #dates{
+        background: #daf6fb;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px #6e6e6e;
+        margin-bottom: 50px;
+        padding: 20px;
+        line-height: 1.5;
+    }
+    
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{financial_aid._type.capitalize()}} Details</h1>
+    <h2>
+        Name: {{financial_aid.name}}
+    </h2>
+
+    <h2>Requirements:</h2>
+    <ul class="requirements-aid-info">
+        {% for req in  financial_aid.requirements_list %}
+            <li>{{req}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Supporting Documents:</h2>
+    <ul class="requirements-aid-info">
+        {% for field in  financial_aid.supported_fields %}
+            <li>{{field}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Dates:</h2>
+    <div id="dates">
+        <p style="color: green;">Opening Date: {{financial_aid.opening_date}}</p>
+        <p style="color: red;">Opening Date: {{financial_aid.closing_date}}</p>
+    </div>
+
+    <h2>Application Details:</h2>
+    <div id="application-details">
+        <p>Apply <a href="{{financial_aid.url_link}}">here</a> for the {{financial_aid._type}}!</p>
+        <p>You can also submit an email to <a href="{{financial_aid.email_address}}">{{financial_aid.email_address}}</a></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}{% endblock %}
+
+</body>
+</html>
+

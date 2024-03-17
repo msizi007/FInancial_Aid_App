@@ -1,0 +1,7 @@
+Reminder!
+
+{{financial_aid_name}} will be closing soon! Please make sure you start your application
+before {{deadline_date}} to become one the the early applicants!
+
+Regards,
+CoolAsCode Team

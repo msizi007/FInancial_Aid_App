@@ -1,0 +1,131 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}<title>Home</title>{% endblock %}
+
+{% block css %}
+
+<style>
+
+    /*-----------------------------------*\
+ * #HERO
+\*-----------------------------------*/
+
+
+section{
+        padding: 100px 10%;
+    }
+
+    .hero-content h1{
+      font-size: 450%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .section-text{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 120%;
+      line-height: 1.4;
+    }
+
+
+.hero-banner { margin-bottom: 30px; }
+
+.hero-banner img { width: 100%; }
+
+.hero-title { margin-bottom: 20px; }
+
+.hero .section-text { margin-bottom: 45px; }
+
+@media (min-width: 768px) {
+    .hero-banner {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+
+    
+  .hero .container {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .hero-banner {
+    margin-bottom: 0;
+    order: 1;
+  }
+}
+
+@media (min-width: 550px) {
+  .instructor-list,
+  .footer-link-box { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 768px) {
+  .footer-text { max-width: 400px; }
+}
+@media (min-width: 1024px) {
+  .footer-link-box { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+
+{% endblock %}
+{% block username %}{{username}}{% endblock %}
+
+{% block content %}
+    
+
+    <section class="hero">
+        <div class="container">
+
+          <figure class="hero-banner">
+            <img name = "slide" >
+          </figure>
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Start Your Future Education</h1>
+
+            <p class="section-text">
+              Credibly redefine distinctive total linkage vis-a-vis multifunction data. Phosphorescently impact
+              goal-oriented
+              strategic
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {% endblock %}
+      {% block js %}
+      <script>
+        var i =0;
+        var images = [];
+        var time = 3000;
+
+        // image list
+        images[0] = "{{url_for('static',filename='images/hero-banner.png')  }}";
+        images[1] = "{{url_for('static',filename='images/banner.png') }}";
+        images[2] = "{{url_for('static',filename='images/about.png') }}";
+
+        function changeImg(){
+          document.slide.src = images[i];
+
+          if(i < images.length - 1) { 
+            i++; 
+          } else{  
+            i = 0;  
+          }
+          
+          setTimeout("changeImg()", time);
+        }
+        window.onload = changeImg;
+        
+      </script>
+      {% endblock %}
+      </body>
+      </html>

@@ -1,0 +1,8 @@
+Hello {{username}}!
+
+Thank you for becoming one of our members. We are really excitted to keep you up to date with
+our bursaries, scholarships, etc.. based on your preferences..
+Increase your  chances of getting funded with us!
+
+Best Regards,
+CoolAsCode Team

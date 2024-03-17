@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            min-width: 40%;
+            max-width: 60%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+            z-index: 999; /* Ensure the toast is above other elements */
+        }
+
+        #toast-container .progress-bar {
+            height: 4px;
+            background-color: #fff;
+            width: 0;
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+        .login-container {
+            justify-content: center;
+            text-align: center;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin: auto;
+            margin-top: 100px;
+            border-color: #007bff;
+            border: #0056b3  solid thin;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .login-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .login-container label{
+            font-family: monospace;
+            font-size: 16PX;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0"
+         alt="image-user-icon" style="width: 100px; border-radius: 50px;">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="username-email-address">Username/Email Address</label>
+            <input type="text" name="username-email-address" placeholder="Username/Email Address" required>
+            <label for="username-email-address">Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+            {% if error %}
+            <h5 style="color: red; margin: 0px;">
+                {{error}}
+            </h5>
+            <h4 style="font-family: monospace;">
+                Not remembering your password? 
+                <a href="recover_password">Recover password</a>
+            </h4>
+            {% endif %}
+            <input type="submit" value="Login">
+            <p>don't have an account? click <a href="/signup">here</a> to sign-up!</p>
+        </form>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast-container"></div>
+
+    {% if message[0] %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const toastContainer = document.getElementById('toast-container');
+
+                function showToast(message, type) {
+                    // Set the message and styling based on the type (success, error, etc.)
+                    toastContainer.innerHTML = `
+                        <div>${message}</div>
+                        <div class="progress-bar"></div>
+                    `;
+                    toastContainer.style.backgroundColor = type === 'success' ? '#4CAF50' :
+                                                           type === 'danger' ? '#e74c3c' :
+                                                           type === 'warning' ? '#f39c12' : '#3498db';
+
+                    // Show the toast
+                    toastContainer.style.display = 'block';
+
+                    // Calculate the duration (in milliseconds) for the progress bar
+                    const duration = 5000;
+                    const interval = 10;
+                    const progressBar = toastContainer.querySelector('.progress-bar');
+                    const increment = (interval / duration) * 100;
+
+                    let progress = 0;
+
+                    // Update the progress bar every 'interval' milliseconds
+                    const progressInterval = setInterval(() => {
+                        progress += increment;
+                        progressBar.style.width = `${progress}%`;
+
+                        // Clear the interval when the progress reaches 100%
+                        if (progress >= 100) {
+                            clearInterval(progressInterval);
+                            toastContainer.style.display = 'none';
+                        }
+                    }, interval);
+                }
+
+                // Example: Show a toast based on Flask message and type
+                showToast("{{ message[0] }}", "{{ message[1] }}");
+            });
+        </script>
+    {% endif %}
+</body>
+</html>

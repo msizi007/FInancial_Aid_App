@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user-profile{
+            background-color: aliceblue;
+            margin-bottom: 40px;
+            margin: auto;
+            border: 8px double black;
+            border-radius: 10px;
+            padding: 40px;
+        }
+        .user-image{
+            text-align: center;
+        }
+        .user-info{
+            padding-left: 60px;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        .user-info button{
+            font-size: 14px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-profile">
+        <div class="user-image">
+            <img src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0"
+            alt="user-logo" width="100px" style="margin-bottom: 0px;">
+            <h4 style="font-family: monospace; font-size: 20px; margin-top: 0px;">
+                {{user.username}}
+            </h4>
+        </div>
+        <div class="user-info">
+            <p>FullName: {{user.first_name.capitalize()}} {{user.last_name.capitalize()}}</p>
+            <p>Email Address: {{user.email_address}}</p>
+            <p>Phone Number: {{user.phone_number}}</p>
+            <a href="/user/edit_user_profile/{{user._id}}">
+                <button>Edit Profile</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

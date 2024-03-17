@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Create Aid</title>
+    <style>
+        .form-container{
+            background-color:darkgrey;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 40%;
+            margin: auto;
+            padding-left: 20px;;
+            padding: auto;
+            margin-top: 30px;
+            padding-top: 10px; padding-bottom: 10px;
+        }
+        .form-container label{
+            font-size: 16px;
+            font-family: monospace;
+        }
+        .form-container input{
+            font-size: 16px;
+            width: 55%;
+        }
+        .form-container select{
+            width: 40%;
+            font-family: monospace;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="font-size: 20px; font-family: monospace; text-align: center;">
+        New Financial Aid
+    </h2>
+    <form method="post" action="" class="form-container">
+        <label for="financial-aid-name">Name: </label>
+        <input type="text" name="financial-aid-name">
+        <br><br>
+        <label for >Type Of Financial Aid: </label>
+        <select name="financial-aid-type">
+            <option name="Bursary">Bursary</option>
+            <option name="Scholarship">Scholarship</option>
+            <option name="Grant">Grant</option>
+        </select>
+        <br><br>
+        <label for="opening-date">Opening Date: </label>
+        <input type="date" name="opening-date" min="{{today}}">
+        <br><br>
+        <label for="closing-date">Closing Date: </label>
+        <input type="date" name="closing-date" min="{{today}}">
+        <br><br>
+        <label for="supported-fields">Supported Fields: </label>
+        <textarea rows="5" cols="50" name="supported-fields" required></textarea>
+        <br><br>
+        <label for="requirements">Requirements: </label>
+        <textarea rows="5" cols="50" name="requirements-list" required></textarea>
+        <br><br>
+        <label for="url-link">Link: </label>
+        <input type="text" name="url-link">
+        <br><br>
+        <label for="email-address">Email Address: </label>
+        <input type="email" name="email-address">
+        <br><br>
+        <input type="submit" id="submit-button" value="Create Aid">
+    </form>
+</body>
+</html>

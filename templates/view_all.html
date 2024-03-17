@@ -1,0 +1,63 @@
+{% extends 'base_admin.html' %}
+
+{% block  title %}<title>Admin - Financial Aid Page</title>{% endblock %}
+{% block  css %}
+<style>
+    table, th, td{
+        border: 1px solid black;
+    }
+    #read-button{
+        background: #50ae58;
+    }
+    #update-button{
+        background: #3b6787;;
+    }
+    #delete-button{
+        background: #8e4141;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 30px; font-family: monospace;font-size: 30px;
+ text-align: center;">
+    Financial Aid Database!
+</h2>
+    <br><br>
+    <a href="/admin/create_aid">
+        <button style="margin: 20px; font-family: monospace; font-size: 16px;
+        border-radius: 5px; background-color: rgb(165, 165, 228);">
+            Add New Financial Aid
+        </button>
+    </a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Opening Date</th>
+            <th>Closing Date </th>
+            <th>Actions</th>
+        </tr>
+        {% for aid in data %}
+        <tr>
+            <td>{{ aid._id }}</td>
+            <td>{{ aid.name }}</td>
+            <td>{{ aid._type }}</td>
+            <td>{{ aid.opening_date }}</td>
+            <td>{{ aid.closing_date }}</td>
+            <td> 
+                <a href="/admin/read_aid/{{ aid._id }}">
+                    <button id="read-button">Read</button>
+                </a>
+                <a href="/admin/update_aid/{{ aid._id }}">
+                    <button id="update-button">Update</button>
+                </a>
+                <a href="/admin/delete_aid/{{ aid._id }}">
+                    <button id="delete-button">Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

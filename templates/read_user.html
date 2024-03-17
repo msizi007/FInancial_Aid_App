@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Read User</title>
+    <style>
+
+        body{
+            padding: 100px 10%;
+        }
+        body h1{
+            font-family: Arial, Helvetica, sans-serif;
+            width: fit-content;
+            border-bottom: 2px solid #2593e2;
+            padding-bottom: 7px;
+            margin-bottom: 50px;
+        } 
+
+        .create-data-button button{
+           background: #007cca;
+           padding: 7px 30px;
+           color: #fff;
+           font-size: 130%;
+           box-shadow: 0 2px 5px #adadad;
+           border: none;
+           margin-bottom: 30px;
+           border-radius: 15px;
+        }
+        
+        table{
+           border: 1px solid #686868;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table tr th{
+           border: 1px solid #686868;
+           font-family: Arial, Helvetica, sans-serif;
+           margin: -5 !important;
+           background: #daf6fb;
+        }
+
+        table tr td{
+           border: 1px solid #686868;
+           padding: 5px 10px;
+           margin: -5 !important;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+        .back-button button{
+           border-radius: 5px;
+           outline: none !important;
+           border: none !important;
+           margin-top: 30px;
+           padding: 6px 20px;
+           color: #fff;
+           font-weight: 500;
+           background: #2593e2;
+           font-size: 160%;
+        }
+        .back-button button:hover{
+           background: #104b75;
+            cursor: pointer;
+        }
+   </style>
+</head>
+<body>
+    <h2>User Details</h2>
+    <table>
+        <tr>
+            <td>ID: </td>
+            <td>{{ user._id }}</td>
+        </tr>
+        <tr>
+            <td>First Name: </td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Email Address: </td>
+            <td>{{ user.email_address }}</td>
+        </tr>
+        <tr>
+            <td>Phone Number: </td>
+            <td>{{ user.phone_number }}</td>
+        </tr>
+        <tr>
+            <td>Username: </td>
+            <td>
+                {{user.username}}
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                {{user.password}}
+            </td>
+        </tr>
+    </table>
+    <a href="/admin/view_all_users" class="back-button">
+        <button>&LeftArrow;Back</button>
+    </a>
+</body>
+</html>

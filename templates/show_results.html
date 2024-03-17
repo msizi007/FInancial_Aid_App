@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Results - {{keyword}}</title>{% endblock %}
+
+{% block css %}
+<style>
+    .container-home {
+        padding: 100px 10%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .container-home-section{
+        background: #daf6fb;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px #6e6e6e;
+        margin-bottom: 20px;
+        padding: 20px;
+        line-height: 1.5;
+        width: 42%;
+        margin-right: 2%;
+    }
+    .container-home-section a{
+        text-decoration: none;
+        width: fit-content;
+    }
+    .container-home-section a h2{
+        color:#191919;
+        font-size: 130%;
+        width: fit-content;
+    }
+    .container-home-section p{
+        color: red;
+        font-weight: 500;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+{% if results %}
+        <h4>{{number_of_results}} results found for keyword "{{keyword}}"</h4>
+    {% else %}
+        <p><i>No result found.</i></p>
+    {% endif %}
+<div class="container-home">
+    {% for aid in results %}
+    <a href="/view_aid/{{aid._id}}">
+
+        <div class="container-home-section">
+            <a href="/view_aid/{{aid._id}}"><h2>{{aid.name}} ({{aid._type}})</h2></a>
+            <p>Closing date: {{aid.closing_date}}</p>
+        </div>
+
+    </a>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block js %}{% endblock %}
+

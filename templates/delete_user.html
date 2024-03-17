@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Delete User</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/admin/delete_user/{{ user._id }}" method="post">
+            <p>Are you sure you want to delete <b>{{user.username}}'s</b> data? it  will be permanently deleted.</p>
+            <input type="submit" value="Delete">
+        </form>
+        <a href="/admin/view_all_users">
+            <button>Cancel</button>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Scholarships</title>{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block username %}{{username}}{% endblock %}
+
+{% block content %}
+<div class="container-home">
+    {% for aid in data %}
+        {% if aid._type.lower() == "scholarship" %}
+        <a href="/view_aid/{{aid._id}}">
+
+            <div class="container-home-section">
+                <a href="/view_aid/{{aid._id}}"><h2>{{aid.name}}</h2></a>
+                <p>Closing date: {{aid.closing_date}}</p>
+            </div>
+
+        </a>
+    {% endif %}
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block js %}{% endblock %}

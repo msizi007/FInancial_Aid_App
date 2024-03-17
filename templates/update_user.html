@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin- Update User</title>
+    <style>
+        .signup-container{
+            background-color: azure;
+            margin: auto;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            width: 40%;
+            margin-top: 100px;
+        }
+        .signup-container h2{
+            margin-top: 30px;
+        }
+        .signup-container input, .signup-container label{
+            font-family: monospace;
+            font-size: 18px;
+        }
+        .signup-container input{
+            width: 220px;
+        }
+        .signup-container button{
+            width: 70%;
+            font-family: monospace;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .signup-container button:hover{
+            background-color: #007bfe;
+            cursor: pointer;
+        }
+        br{
+            margin-bottom: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2 style="font-family: monospace;">Update User </h2>
+        <form action="/admin/update_user/{{financial_aid._id}}" method="post">
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" value="{{user.first_name}}"><br><br>
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" value="{{user.last_name}}"><br><br>
+            <label for="phone-number">Phone Number: </label>
+            <input type="tel" name="phone-number" value="{{user.phone_number}}"><br><br>
+            <label for="email-address">Email Address: </label>
+            <input type="email" name="email-address" value="{{user.email_address}}"><br><br>
+            <label for="username">Username: </label>
+            <input type="text" name="username" value="{{user.username}}"><br><br>
+            <label for="password">Password: </label>
+            <input  type="password" name="password" value="{{user.password}}" required><br><br>
+            <label for="confirm-password">Confirm Password: </label>
+            <input  type="password" name="confirm-password" value="{{user.password}}" required><br><br>
+            {% if error %}
+            <h4 style="color: red; font-family: monospace; margin: 0px;">
+                {{error}}
+            </h4>
+            {% endif %}
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

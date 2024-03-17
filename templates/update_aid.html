@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Update Aid</title>
+
+    <style>
+        body{
+            padding: 100px 10%;
+        }
+        body h1{
+            font-family: Arial, Helvetica, sans-serif;
+            width: fit-content;
+            border-bottom: 2px solid #2593e2;
+            padding-bottom: 7px;
+            margin-bottom: 50px;
+        }
+        form{
+            background: #daf6fb;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #6e6e6e;
+            margin-bottom: 50px;
+            padding: 40px 30px;
+        }
+        form input, select, textarea{
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 5px 15px;
+            color: #282828;
+        }
+        form label{
+            font-weight: 550;
+            font-size: 90%;
+            width: 200px !important;
+            display: inline-block;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        form textarea{
+            width: 400px;
+            max-width: 400px;
+            height: 100px;
+            max-height: 100px;
+        }
+        form input[type="submit"]{
+            background: #007cca;
+            padding: 7px 30px;
+            color: #fff;
+            font-size: 130%;
+            box-shadow: 0 2px 5px #adadad;
+            border: none;
+        }
+        form input[type="submit"]:hover{
+            background: #015c94;
+        }
+    </style>
+    
+</head>
+<body>
+    <form action="/admin/update_aid/{{financial_aid._id}}" method="post">
+        <label for="financial-aid-name">Name: </label>
+        <input type="text" name="financial-aid-name" value="{{ financial_aid.name }}">
+        <br><br>
+        <label for >Type Of Financial Aid: </label>
+        <select name="financial-aid-type">
+            <option name="Bursary">Bursary</option>
+            <option name="Scholarship">Scholarship</option>
+            <option name="Grant">Grant</option>
+        </select>
+        <br><br>
+        <label for="opening-date">Opening Date: </label>
+        <input type="date" name="opening-date" value="{{ financial_aid.opening_date }}">
+        <br><br>
+        <label for="closing-date">Closing Date: </label>
+        <input type="date" name="closing-date" value="{{ financial_aid.closing_date }}">
+        <br><br>
+        <label for="supported-fields">Supported Fields: </label>
+        <textarea rows="2" cols="50" name="supported-fields">{{financial_aid.supported_fields}}</textarea>
+        <br><br>
+        <label for="requirements-list">Requirements: </label>
+        <textarea rows="2" cols="50" name="requirements-list">{{financial_aid.requirements_list}}</textarea> 
+        <br><br>
+        <label for="url-link">Link: </label>
+        <input type="text" name="url-link" value="{{ financial_aid.url_link }}">
+        <br><br>
+        <label for="email-address">Email: </label>
+        <input type="email" name="email-address" value="{{ financial_aid.email_address }}">
+        <br><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

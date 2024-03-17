@@ -1,0 +1,14 @@
+Hello {{username}},
+
+We have just added a new {{financial_aid_type}} on our system. Make sure to be
+the first to check it out.
+
+{{financial_aid_type}} Summary:
+    Name: {{financial_aid_name}}
+    Opening Date: {{opening_date}}
+    Closing Date: {{closing_date}}
+
+Make sure to view full information about the financial aid on our website.
+
+Regards
+CoolAsCode Team

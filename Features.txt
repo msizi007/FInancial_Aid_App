@@ -1,0 +1,3 @@
+- User having favourite bursaries and they are saved in a database
+- send email to user letting him know about soon to be closing bursaries
+- encryption

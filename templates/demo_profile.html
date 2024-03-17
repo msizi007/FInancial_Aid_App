@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Navigation</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-logo {
+      cursor: pointer;
+    }
+    .navbar-menu {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      color: #fff;
+      list-style-type: none;
+      padding: 10px;
+      margin: 0;
+    }
+    .navbar-menu li {
+      padding: 5px 0;
+    }
+    .navbar-menu li:hover {
+      background-color: #555;
+    }
+    .navbar:hover .navbar-menu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-logo">
+    <img src="{{url_for('static', filename='images/user_logo.png')}}" 
+    alt="user_logo" width="50px">
+  </div>
+  <ul class="navbar-menu">
+    <li>Profile</li>
+    <li>Add Account</li>
+    <li>Settings</li>
+    <li>Sign Out</li>
+  </ul>
+</div>
+
+</body>
+</html>

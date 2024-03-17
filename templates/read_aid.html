@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Read Aid</title>
+
+
+    <style>
+
+        body{
+            padding: 100px 10%;
+        }
+        body h1{
+            font-family: Arial, Helvetica, sans-serif;
+            width: fit-content;
+            border-bottom: 2px solid #2593e2;
+            padding-bottom: 7px;
+            margin-bottom: 50px;
+        } 
+
+        .create-data-button button{
+           background: #007cca;
+           padding: 7px 30px;
+           color: #fff;
+           font-size: 130%;
+           box-shadow: 0 2px 5px #adadad;
+           border: none;
+           margin-bottom: 30px;
+           border-radius: 15px;
+        }
+        
+        table{
+           border: 1px solid #686868;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table tr th{
+           border: 1px solid #686868;
+           font-family: Arial, Helvetica, sans-serif;
+           margin: -5 !important;
+           background: #daf6fb;
+        }
+
+        table tr td{
+           border: 1px solid #686868;
+           padding: 5px 10px;
+           margin: -5 !important;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+        .back-button button{
+           border-radius: 5px;
+           outline: none !important;
+           border: none !important;
+           margin-top: 30px;
+           padding: 6px 20px;
+           color: #fff;
+           font-weight: 500;
+           background: #2593e2;
+           font-size: 160%;
+        }
+        .back-button button:hover{
+           background: #104b75;
+            cursor: pointer;
+        }
+   </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>ID: </td>
+            <td>{{ financial_aid._id }}</td>
+        </tr>
+        <tr>
+            <td>Name: </td>
+            <td>{{ financial_aid.name }}</td>
+        </tr>
+        <tr>
+            <td>Type: </td>
+            <td>{{ financial_aid._type }}</td>
+        </tr>
+        <tr>
+            <td>Opening Date: </td>
+            <td>{{ financial_aid.opening_date }}</td>
+        </tr>
+        <tr>
+            <td>Closing Date: </td>
+            <td>{{ financial_aid.closing_date }}</td>
+        </tr>
+        <tr>
+            <td>Supported Fields: </td>
+            <td>
+                <ul>
+                    {% for field in financial_aid.supported_fields %}
+                        {% if field %}
+                            <li> {{ field }} </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Requirements: </td>
+            <td>
+                <ul>
+                    {% for req in financial_aid.requirements_list %}
+                        {% if req %}
+                            <li> {{ req }} </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>{{ financial_aid.email_address }}</td>
+        </tr>
+        <tr>
+            <td>Link</td>
+            <td>T{{ financial_aid.url_link }}</td>
+        </tr>
+    </table>
+    <a class="back-button" href="/admin/view_all">
+        <button>Back</button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Vertical Navbar</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.vertical-navbar {
+    height: 100vh;
+    width: 200px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: none;
+    padding-top: 20px;
+}
+
+.vertical-navbar a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: white;
+    transition: 0.3s;
+}
+
+.vertical-navbar a:hover {
+    background-color: #555;
+}
+
+.vertical-navbar .active {
+    background-color: #4CAF50;
+}
+
+.user-profile {
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-profile p {
+    margin: 0;
+}
+
+.settings, .logout {
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.settings:last-child, .logout:last-child {
+    border-bottom: none;
+}
+</style>
+</head>
+<body>
+
+<div class="vertical-navbar">
+    <div class="user-profile">
+        <img src="user-profile.jpg" alt="User Profile">
+        <p>John Doe</p>
+    </div>
+    <a href="#" class="active">Home</a>
+    <a href="#">Profile</a>
+    <a href="#" class="settings">Settings</a>
+    <a href="#" class="logout">Logout</a>
+</div>
+
+<div style="margin-left: 200px; padding: 20px;">
+    <!-- Your main content goes here -->
+    <h2>Welcome to Cool Vertical Navbar</h2>
+    <p>This is just a demonstration of a cool vertical navbar.</p>
+</div>
+
+</body>
+</html>
