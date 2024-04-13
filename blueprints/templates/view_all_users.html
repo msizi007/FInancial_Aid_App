@@ -1,28 +1,34 @@
-{% extends 'base_admin.html' %}
+{% extends 'layout.html' %}
 
-{% block  title %}<title>Admin - Users Page</title>{% endblock %}
-{% block  css %}
+{% block title %}<title>Admin - Users Page</title>{% endblock %}
+{% block css %}
 <style>
-    table, th, td{
+    table,
+    th,
+    td {
         border: 1px solid black;
     }
-    #read-button{
+
+    #read-button {
         background: #50ae58;
     }
-    #update-button{
-        background: #3b6787;;
+
+    #update-button {
+        background: #3b6787;
+        ;
     }
-    #delete-button{
+
+    #delete-button {
         background: #8e4141;
     }
 </style>
 {% endblock %}
 
-{% block  content %}
+{% block content %}
 <h2 style="margin-top: 30px; font-family: monospace;font-size: 30px; text-align: center;">
     User Database
 </h2>
-<a href="/admin/create_user">
+<a href="/create_user">
     <button style="margin: 20px; font-family: monospace; font-size: 16px;
     border-radius: 5px; background-color: rgb(165, 165, 228);">
         Create New User!
@@ -64,4 +70,4 @@
 </table>
 {% endblock %}
 
-{% block  js %}{% endblock %}
+{% block js %}{% endblock %}

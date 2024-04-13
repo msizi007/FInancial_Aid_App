@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin- Update User</title>
+    <title>Admin - Create User</title>
     <style>
-        .signup-container{
+        .signup-container {
             background-color: azure;
             margin: auto;
             border-radius: 5px;
@@ -14,17 +15,22 @@
             width: 40%;
             margin-top: 100px;
         }
-        .signup-container h2{
+
+        .signup-container h2 {
             margin-top: 30px;
         }
-        .signup-container input, .signup-container label{
+
+        .signup-container input,
+        .signup-container label {
             font-family: monospace;
             font-size: 18px;
         }
-        .signup-container input{
+
+        .signup-container input {
             width: 220px;
         }
-        .signup-container button{
+
+        .signup-container button {
             width: 70%;
             font-family: monospace;
             margin: 10px;
@@ -33,40 +39,44 @@
             background-color: #007bff;
             color: #fff;
         }
-        .signup-container button:hover{
+
+        .signup-container button:hover {
             background-color: #007bfe;
             cursor: pointer;
         }
-        br{
+
+        br {
             margin-bottom: 20px;
         }
-        </style>
+    </style>
 </head>
+
 <body>
     <div class="signup-container">
-        <h2 style="font-family: monospace;">Update User </h2>
-        <form action="/admin/update_user/{{financial_aid._id}}" method="post">
+        <h2 style="font-family: monospace;">Create User Account</h2>
+        <form action="" method="post">
             <label for="fname">First Name: </label>
-            <input type="text" name="fname" value="{{user.first_name}}"><br><br>
+            <input type="text" name="fname"><br><br>
             <label for="lname">Last Name: </label>
-            <input type="text" name="lname" value="{{user.last_name}}"><br><br>
+            <input type="text" name="lname"><br><br>
             <label for="phone-number">Phone Number: </label>
-            <input type="tel" name="phone-number" value="{{user.phone_number}}"><br><br>
+            <input type="tel" name="phone-number"><br><br>
             <label for="email-address">Email Address: </label>
-            <input type="email" name="email-address" value="{{user.email_address}}"><br><br>
+            <input type="email" name="email-address"><br><br>
             <label for="username">Username: </label>
-            <input type="text" name="username" value="{{user.username}}"><br><br>
+            <input type="text" name="username"><br><br>
             <label for="password">Password: </label>
-            <input  type="password" name="password" value="{{user.password}}" required><br><br>
+            <input type="password" name="password" required><br><br>
             <label for="confirm-password">Confirm Password: </label>
-            <input  type="password" name="confirm-password" value="{{user.password}}" required><br><br>
+            <input type="password" name="confirm-password"><br><br>
             {% if error %}
             <h4 style="color: red; font-family: monospace; margin: 0px;">
                 {{error}}
             </h4>
             {% endif %}
-            <button type="submit">Update</button>
+            <button type="submit">Create</button>
         </form>
     </div>
 </body>
+
 </html>
