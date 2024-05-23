@@ -6,7 +6,7 @@ from datetime import timedelta, datetime, date
 import bcrypt
 from random import randint
 from mails import mail as Email
-from blueprints.admin import app as adminBlueprint
+from Blueprints.Admin.admin import app as adminBlueprint
 from dbmodels import app, db, Financial_Aid, User
 
 # INITIATIONS AND CONFIGS
@@ -93,7 +93,7 @@ def grants():
     else:
         return redirect(url_for('login'))
     
-@app.route('/view_aid<id>')
+@app.route('/view_aid/<id>')
 def view_aid(id):
     res =  Financial_Aid.query.filter_by(_id=int(id)).first()
     res.supported_fields = [field for field in res.supported_fields.split('-') if field != ""]
@@ -127,7 +127,7 @@ def signup():
                         phone_number=phone_num, username=username, password=password)
         db.session.add(new_user)
         db.session.commit()
-        email
+        
         popup("Account created successfully!", "success")
         Email.send_welcome_message(new_user.email_address, new_user.username, "https://localhost:5000/")
         return redirect(url_for('login'))
@@ -163,7 +163,7 @@ def login():
         elif user1 and bcrypt.checkpw(password.encode('utf-8'), user1.password):
             session.permanent = True
             session['username'] = user1.username
-            session['user'] = user._id
+            session['user'] = user1._id
             popup(f"Welcome Back {session.get('username')}", "success")
             return redirect(url_for('index_page'))
         else:
