@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Developers</title>{% endblock %}
+
+{% block css %}
+<style>
+    .profilepic {
+        display: inline-block;
+        border-radius: 20px;
+    }
+
+    .developer-info,
+    .developer-info p {
+        display: inline-block;
+        width: 80%;
+        font-family: monospace;
+        font-size: large;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div>
+    <img class="profilepic" src="{{url_for('static', filename='images/profilepic.jpeg')}}" width="200">
+    <div class="developer-info">
+        <p>Name: Msizi Sbonelo Mwelase</p>
+        <p>I developed the project as a school assignment in the
+            <a href="https://www.dut.ac.za/">Durban University of Technology</a> during my enrollment
+            when I was doing the Bachelor of Information Communication Technology course. Source code is available on
+            <a href="https://github.com/msizi007/FInancial_Aid_App">github</a>. I showcase my project
+            and other more projects to potential employers as I currently do not have organisational
+            experience.
+        </p>
+    </div>
+</div>
+{% endblock %}

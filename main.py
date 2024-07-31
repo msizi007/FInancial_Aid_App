@@ -285,6 +285,9 @@ def  edit_user_profile(id):
         else:
             return redirect(url_for('index_page'))
     
+@app.route('/developers')
+def developers():
+    return render_template('developers.html', message=None)
 
 if __name__ == "__main__":
     with app.app_context():
