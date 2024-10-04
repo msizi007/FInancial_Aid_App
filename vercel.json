@@ -3,7 +3,7 @@
     "builds": [
         {"source": "main.py", "use": "@vercel/python"}
     ],
-    "route": [
+    "routes": [
         {"src": "/(.*)", "dest": "main.py"}
     ]
 }
